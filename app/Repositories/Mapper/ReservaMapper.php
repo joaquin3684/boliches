@@ -16,7 +16,7 @@ class ReservaMapper
     {
         $reserva =  new Reserva($objeto->id, $objeto->fecha_reserva, $objeto->estado);
 
-        if($reserva->relationLoaded('items'))
+        if($objeto->relationLoaded('items'))
         {
             $items = $objeto->items->map(function($item){
                 return $this->itemMapper->map($item);

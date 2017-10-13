@@ -29,6 +29,8 @@ Route::post('boliche/items', 'BolicheController@items');
 Route::get('boliche/all', 'BolicheController@all');
 Route::resource('boliche', 'BolicheController');
 
+
+
 Route::group(['middleware' => ['web']], function () {
 
 Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');

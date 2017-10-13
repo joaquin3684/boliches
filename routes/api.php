@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,10 @@ Route::post('boliche/items', 'BolicheController@items');
 Route::get('boliche/all', 'BolicheController@all');
 Route::resource('boliche', 'BolicheController');
 
-
+Route::post('tablita', function(Request $request){
+    $tabla = $request['tabla'];
+   return DB::table($tabla)->get();
+});
 
 Route::group(['middleware' => ['web']], function () {
 

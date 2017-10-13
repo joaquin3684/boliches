@@ -23,5 +23,6 @@ class ReservaMapper
             });
             $reserva->setItems($items);
         }
+        return $reserva;
     }
 }

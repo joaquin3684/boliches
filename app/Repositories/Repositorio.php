@@ -44,7 +44,9 @@ abstract class Repositorio implements abmInterface
     public function all()
     {
         $obj = $this->gateway->all();
-        return $this->mapper->map($obj);
+        return $obj->map(function($obj){
+            return $this->mapper->map($obj);
+        });
     }
 
     public function find($id)
